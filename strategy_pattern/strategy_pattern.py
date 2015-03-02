@@ -86,12 +86,13 @@ class Easywork(Work):
         print "easy work :)"
 
 if __name__ == "__main__":
+
     officetel = Officetel()
     officetel.action()
     officetel.work()
     officetel.livehuman()
 
-    print "**********************"
+    print "\n**********************"
     policeoffice = Policeoffice()
     policeoffice.action()
     policeoffice.work()
@@ -99,7 +100,7 @@ if __name__ == "__main__":
     policeoffice.do_action = Sleeping()
     policeoffice.action()
 
-    print "**********************"
+    print "\n**********************"
 
     firestation = Firestation()
     firestation.action()
