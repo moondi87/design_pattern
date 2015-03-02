@@ -16,3 +16,44 @@ Action과 Work라는 인터페이스에서 action()과 work()가 구현되어있
 첫 패턴을 만들어 봄으로써 드는 생각은,, 고급언어에서는 디자인패턴이 딱히 필요하지 않다는 생각이 든다.
 오히려 틀에 억매여서 융통성이 더 없어진 느낌이랄까..
 파이썬과 고랭으로 만들면서 언어간의 특이성과 장단점을 체감할 수 있어서 공부용으로 계속 해봐야겠다.
+
+#+BEGIN_EXAMPLE
+** go
+
+strategy_pattern $ go run strategy_pattern.go 
+Zzzz.......
+Noworking
+Zzzz.......
+***********************
+NYPD!!
+so hard!!
+Zzzz.......
+***********************
+we get fire off !!
+easy work :) 
+Noworking
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+** python
+
+strategy_pattern $ python strategy_pattern.py
+it's just normal house
+Zzzz.....
+Noworking
+people live here!!
+
+**********************
+it's policeoffice!!
+NYPD!!
+so hard!!
+people live here!!
+Zzzz.....
+
+**********************
+it's fire station!!
+we get fire off !!
+easy work :)
+people live here!!
+Zzzz.....
+#+END_EXAMPLE
