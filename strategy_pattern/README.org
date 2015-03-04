@@ -20,18 +20,21 @@ Action과 Work라는 인터페이스에서 action()과 work()가 구현되어있
 #+BEGIN_EXAMPLE
 ** go
 
-strategy_pattern $ go run strategy_pattern.go 
+strategy_pattern $ go run strategy_pattern.go
 Zzzz.......
 Noworking
 Zzzz.......
+im alive here!!
 ***********************
 NYPD!!
 so hard!!
 Zzzz.......
+im alive here!!
 ***********************
 we get fire off !!
 easy work :) 
 Noworking
+im alive here!!
 #+END_EXAMPLE
 
 #+BEGIN_EXAMPLE
