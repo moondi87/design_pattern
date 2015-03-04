@@ -7,22 +7,17 @@ import (
 type Building struct {
 	do_action Actioner
 	do_work   Worker
-	live      Liver
 }
 
-func (this *Building) SetAction(a Actioner) {
-	this.do_action = a
+func (b *Building) SetAction(a Actioner) {
+	b.do_action = a
 }
 
-func (this *Building) SetWork(w Worker) {
-	this.do_work = w
+func (b *Building) SetWork(w Worker) {
+	b.do_work = w
 }
 
-type Liver interface {
-	live()
-}
-
-func live() {
+func (b *Building) live() {
 	fmt.Println("im alive here!!")
 }
 
@@ -70,38 +65,40 @@ func (this *Easywork) work() {
 	fmt.Println("easy work :) ")
 }
 
-func (b *Building) Officetel() *Building {
-	return &Building{new(Sleeping), new(Nowork), b.live}
+func Officetel() *Building {
+	return &Building{new(Sleeping), new(Nowork)}
 }
 
-func (b *Building) Policeoffice() *Building {
-	return &Building{new(Catchcriminal), new(Hardwork), b.live}
+func Policeoffice() *Building {
+	return &Building{new(Catchcriminal), new(Hardwork)}
 }
 
-func (b *Building) Firestation() *Building {
-	return &Building{new(Stopfire), new(Easywork), b.live}
+func Firestation() *Building {
+	return &Building{new(Stopfire), new(Easywork)}
 }
 
 func main() {
-	var b Building
 
-	officetel := b.Officetel()
+	officetel := Officetel()
 	officetel.do_action.action()
 	officetel.do_work.work()
 	officetel.SetAction(new(Sleeping))
 	officetel.do_action.action()
+	officetel.live()
 
 	fmt.Println("***********************")
-	policeoffice := b.Policeoffice()
+	policeoffice := Policeoffice()
 	policeoffice.do_action.action()
 	policeoffice.do_work.work()
 	policeoffice.SetAction(new(Sleeping))
 	policeoffice.do_action.action()
+	policeoffice.live()
 
 	fmt.Println("***********************")
-	firestation := b.Firestation()
+	firestation := Firestation()
 	firestation.do_action.action()
 	firestation.do_work.work()
 	firestation.SetWork(new(Nowork))
 	firestation.do_work.work()
+	firestation.live()
 }
