@@ -1,2 +1,70 @@
 
 * Observer-Pattern
+
+#+BEGIN_EXAMPLE
+Observer Pattern 정의 
+
+- 한 객체의 상태가 바뀌면 그 객체에 의존하는 다른 객체들한테 연락이 가고,
+자동으로 내용이 갱신되는 방식으로 일대다(one-to-many) 의존성을 정의한다.
+#+END_EXAMPLE
+
+교통관제센터에서 정보를 받는 상황을 Observer-Pattern으로 구현해 보았다.
+LiveTrafficNews, EmergencyService, NavigationAlarm 은 Observer에 변경사항이 발생할 때 마다
+자동으로 교통정보를 받아서 각자의 방식으로 임무를 수행한다.
+
+golang에서 상속을 embbeding 방식으로 구현했는데 익숙해 지니 좀 편한것 같다.
+하지만 struct 생성자를 구현해서 사용하는건.. 역시나 구리다..
+
+#+BEGIN_EXAMPLE
+** go
+
+
+/observer_pattern $ go run observer_pattern.go
+*********************************
+**CNN live traffic news**
+location : Chungdam
+amountofcar : 72438
+accident : false
+datetime: 2015-03-06T17:11:34+09:00
+
+*********************************
+**CNN live traffic news**
+location : Bucheon
+amountofcar : 32438
+accident : true
+datetime: 2015-03-06T17:11:34+09:00
+
+**EmergencyService**
+accident accept time : 2015-03-06T17:11:34+09:00
+we will there for you!
+now no trafficjam on the road
+run to Bucheon right now!
+
+**NavigationAlarm**
+datetime : 2015-03-06T17:11:34+09:00
+there is car accident on Bucheon,
+ if our root drop by Bucheon, we will change root.
+32438 car on the road.
+
+*********************************
+**NavigationAlarm**
+datetime : 2015-03-06T17:11:34+09:00
+safe your driving!
+Ilsan has 52438 car on the road. -by live traffic infomation
+
+*********************************
+**EmergencyService**
+accident accept time : 2015-03-06T17:11:34+09:00
+we will there for you!
+now terrible trafficjam on the road
+run to Gangnam right now!
+
+**NavigationAlarm**
+datetime : 2015-03-06T17:11:34+09:00
+there is car accident on Gangnam,
+ if our root drop by Gangnam, we will change root.
+92438 car on the road.
+
+*********************************
+please regist observer first
+#+END_EXAMPLE
