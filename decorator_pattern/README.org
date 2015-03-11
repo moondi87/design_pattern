@@ -1,0 +1,38 @@
+
+* Decorator_Pattern
+
+#+BEGIN_EXAMPLE
+Decorator Pattern 정의
+
+- 객체에 추가 요소를 동적으로 더할 수 있습니다. 데코레이터를 사용하면
+서브 클래스를 만드는 경우에 비해 훨씬 유연하게 기능을 확장할 수 있습니다.
+#+END_EXAMPLE
+
+다나와사이트 같이 PC 와 option 부품을 구입하는 상황을 decorator pattern 으로 해보았다.
+기존의 코드를 놔둔체로 유연하게 코드를 확장할 수 있는 것이 decorator pattern의 장점이다.
+
+embedding 이 상속보다 많은 기능이 있다는 것을 알게해준 패턴이다.
+struct를 반환하고 다시 인자로 받는 과정에서 type문제로 골머리를 앓았다.
+embedding을 pointer type 으로 받아서 해결하였다.
+아직 struct이 클래스보다 한눈에 전체구조를 보기가 힘들다. 빨리 익숙해져야 할듯하다. 
+interface, struct 간의 유기적인 사용법을 알게되었다.
+
+#+BEGIN_EXAMPLE
+decorator_pattern $ go run decorator_pattern.go 
+**********************
+ BUY PC here!         
+**********************
+gaming Pc : 600000
+office Pc : 300000
+developer Pc : 1000000
+super Pc : 2000000
+**********************
+#optional item
+ram2GB : 20000
+ssd64GB : 20000
+cooler : 20000
+usb30 : 20000
+**********************
+1. Gaming PC + ram2GB + ram2GB + ssd64GB + cooler + usb30 = 730000
+2. SuperPc + ssd64GB = 2070000
+#+END_EXAMPLE
